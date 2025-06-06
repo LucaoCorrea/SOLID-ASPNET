@@ -1,8 +1,7 @@
-﻿using System;
+﻿using SOLID.DIP;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace SOLID.SRP
 {
@@ -11,21 +10,24 @@ namespace SOLID.SRP
         public string Name { get; set; }
         public string Email { get; set; }
        
-        public class UserRpository
+        public class UserRepository
         {
             public void Save(ViolationUser violationUser)
             {
                 // Save user to database
-                Console.WriteLine("User saved to database.");
+                Console.WriteLine("User salvo no Banco.");
             }
         }
-        public class EmailService
+        public class EmailServiceSolution : IMessageService
         {
-            public void SendEmail(ViolationUser violationUser, string message)
-            {
-                // Send email to user
-                Console.WriteLine($"Email sent to {violationUser.Email}: {message}");
-            }
+            public void SendMessage(string message)
+                => Console.WriteLine($"EMAIL: {message}");
+        }
+
+        public class SMSServiceSolution : IMessageService
+        {
+            public void SendMessage(string message)
+                => Console.WriteLine($"SMS: {message}");
         }
 
     }

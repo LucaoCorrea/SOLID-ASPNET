@@ -22,10 +22,13 @@ namespace SOLID.ISP
         public void Work() { /* Implementation */ }
         public void Eat() { /* Implementation */ }
         public void Sleep() { /* Implementation */ }
+        
+        public void VibeCoding() { /* Implementation */ }
     }
 
     public class RobotSolution : IWorkerSolution    
     {
         public void Work() { /* Implementation */ }
+        public void VibeCoding() { /* Implementation */ }
     }
 }
